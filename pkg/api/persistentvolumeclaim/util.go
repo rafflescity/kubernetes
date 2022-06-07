@@ -109,6 +109,9 @@ func dataSourceIsPvcOrSnapshot(dataSource *core.TypedLocalObjectReference) bool 
 		if dataSource.Kind == volumeSnapshot && apiGroup == "snapshot.storage.k8s.io" {
 			return true
 		}
+		
+		// Allow 3rd-party apiGroup
+		return true
 	}
 	return false
 }
